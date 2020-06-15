@@ -36,6 +36,10 @@ $(window).on('scroll', function (){
 });
 
 
+
+
+
+
 $(window).on('scroll', function (){
   var elem = $('.menu-border');
   elem.each(function () {
@@ -85,18 +89,6 @@ $(document).ready(function () {
 $(function () {
   // bodyにdivを追加
   
-
-
-
-
-  
-
-
-  
-
-
-
-
 
 
 
@@ -154,32 +146,41 @@ $(window).scroll(function (){
 
 $(function(){
    $('.gallery-slider').infiniteslide({
-      'height': 800,		// 高さを指定
-      'speed': 10,		// スピードを指定
+      'height': 300,		// 高さを指定
+      'speed': 30,		// スピードを指定
       'direction' : 'left',	// スライドする向きを指定
-      'clone' : 2		// 子要素のコピー数を指定
-      });
+      'clone' : 2,		// 子要素のコピー数を指定
+      'slidesToShow' : 4
+    });
   });
 
 
+$(function(){
+  $('.gallery-slider-second').infiniteslide({
+     'height': 300,		// 高さを指定
+     'speed': 30,		// スピードを指定
+     'direction' : 'right',	// スライドする向きを指定
+     'clone' : 2,		// 子要素のコピー数を指定
+     'slidesToShow' : 4
+   });
+ });
+
+
+
+
+
+
   var window_h = $(window).height();
-  $("#wh span").text(window_h);
   //スクロールイベント
   $(window).on("scroll", function() {
     var scroll_top = $(window).scrollTop();
-    $("#scroll span").text(scroll_top);
   
     $(".vertical-line").each(function() {
       var elem_pos = $(this).offset().top;
-      $(this).find(".box_pos span").text(Math.floor(elem_pos));
-    　
-      //どのタイミングでフェードインさせるか
+    　      //どのタイミングでフェードインさせるか
       if (scroll_top >= elem_pos - window_h+150) {
         $(this).addClass("fadein");
-      } else {
-        $(this).removeClass("fadein");
-      }
-    });
+      }     });
   });
 
 
@@ -199,7 +200,7 @@ $(function(){
         var elemPos = $(this).offset().top,
             scroll = $(window).scrollTop(),
             windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + -30){
+          if (scroll > elemPos - windowHeight + -250){
               $(this).addClass('active');
             }
         });
@@ -226,7 +227,6 @@ $(function(){
     $(function () {
       // bodyにdivを追加
   $('h2').append('<div id="curtain">');
-  $('.topvisual-wrap').prepend('<div id="curtain2">');
       // 追加したdivを塗りつぶしてから透明化アニメーション
       var curtain = $('#curtain').css({
           position: 'absolute',
@@ -235,30 +235,15 @@ $(function(){
           backgroundColor: 'black',
           opacity: 100
       });
-      var curtain2 = $('#curtain2').css({
-          position: 'absolute',
-          left: 0, top: 0,
-          width: '100%', height: '100%',
-          backgroundColor: 'black',
-          opacity: 100,
-          //zIndex: -1,
-      });
+ 
       curtain.animate({
           opacity: 0
-      },1300).promise().then(function(){
+      },1500).promise().then(function(){
           curtain2.animate({
               opacity: 0
-          }, 1300)
+          }, 1500)
       });
   });
-
-
-
-
-
-
-
-
 
 
 
@@ -290,11 +275,29 @@ $(function(){
     });
   });
 
+
+  $(function(){
+    $('.header').queue(function(){
+      $(this).addClass('fadein-menu').dequeue();
+    });
+  });
+
+
+
+
 $(function(){
-  $('.mainvisual-inner, .topvisual-wrap').delay(1700).queue(function(){
+  $('.mainvisual-inner').delay(1700).queue(function(){
   $(this).addClass('inneractive').dequeue();
 });
 });
+
+
+$(function(){
+  $('.topvisual-wrap').delay(1300).queue(function(){
+  $(this).addClass('topvisualactive').dequeue();
+});
+});
+
 
 
 $(function(){
@@ -318,18 +321,9 @@ $(function(){
 
   
 
-  $(window).scroll(function (){
-    $('.box').each(function(){
-        var elemPos = $(this).offset().top,
-            scroll = $(window).scrollTop(),
-            windowHeight = $(window).height();
-          if (scroll > elemPos - windowHeight + 40){
-              $(this).addClass('box-fadein');
-            }
-        });
 
+$(function(){
+  $('.box').delay(1500).queue(function(){
+  $(this).addClass('box-fadein').dequeue();
 });
-
-
-
-
+});
