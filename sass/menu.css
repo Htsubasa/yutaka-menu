@@ -698,14 +698,14 @@ body {
 }
 
 /*header*/
-.fadein {
+.fadein-menu {
   opacity: 1;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .header-bacground {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -728,8 +728,8 @@ body {
 
 .topvisual-wrap {
   opacity: 0;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
   /*img*/
 }
 
@@ -753,10 +753,10 @@ body {
   }
 }
 
-.topvisual .inneractive {
+.topvisual .topvisualactive {
   opacity: 1;
-  -webkit-transition: 2.5s;
-  transition: 2.5s;
+  -webkit-transition: 3s;
+  transition: 3s;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
 }
@@ -936,6 +936,12 @@ body {
   }
 }
 
+@media (max-width: 850px) {
+  .container #content-first, .container #content-second, .container #content-third, .container #content-fourth, .container #content-fifth {
+    padding-bottom: 0px;
+  }
+}
+
 .container #content-first .box, .container #content-second .box, .container #content-third .box, .container #content-fourth .box, .container #content-fifth .box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1062,7 +1068,7 @@ body {
 
 @media (max-width: 480px) {
   .container #content-first .box img, .container #content-second .box img, .container #content-third .box img, .container #content-fourth .box img, .container #content-fifth .box img {
-    width: 315px;
+    width: 300px;
     height: 175px;
   }
 }
@@ -1226,7 +1232,7 @@ body {
   color: #B2A168;
   padding-right: 43px;
   padding-left: 43px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0em;
 }
 
 @media (max-width: 1150px) {
@@ -1246,6 +1252,7 @@ body {
 @media (max-width: 650px) {
   .footer-btn-first .phone-btn {
     line-height: 13px;
+    letter-spacing: 0.3em;
   }
 }
 
@@ -1304,12 +1311,14 @@ body {
   .footer-btn-second .phone-btn {
     padding-right: 15px;
     padding-left: 15px;
+    letter-spacing: 0em;
   }
 }
 
 @media (max-width: 650px) {
   .footer-btn-second .phone-btn {
     line-height: 13px;
+    letter-spacing: 0.3em;
   }
 }
 
@@ -1365,7 +1374,7 @@ body {
   .footer-navigation ul li {
     display: inline;
     font-size: 14px;
-    padding: 0 15px;
+    padding: 0 1.6vw;
   }
 }
 
