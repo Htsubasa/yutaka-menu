@@ -700,8 +700,8 @@ body {
 /*header*/
 .fadein-menu {
   opacity: 1;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .header-bacground {
