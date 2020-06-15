@@ -270,7 +270,7 @@ $(function(){
 
 
 $(function(){
-    $('.header').delay(3200).queue(function(){
+    $('.header').delay(2800).queue(function(){
       $(this).addClass('fadein').dequeue();
     });
   });
